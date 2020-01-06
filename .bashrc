@@ -47,6 +47,9 @@ alias ..='cd ..'
 alias ...='cd .. && cd ..'
 alias ....='cd .. && cd .. && cd ..'
 alias ll='ls -1a --color'
+alias q='exit'
+alias reload='source ~/.bashrc'
+
 function pln {
     printf "\n$@\n"
 }
@@ -82,7 +85,7 @@ npm i'
 
 alias nmd='\
 pln "${yellow}[ηϻ] ${boldblue}☁${reset}  -  ${boldgreen}installing default node_modules globally...${reset}\n" && \
-npm i -g rimraf ts-node ngrok npm-check http-server commitizen cz-conventional-changelog standard-version'
+npm i -g rimraf ts-node ngrok npm-check npmrc http-server commitizen cz-conventional-changelog'
 
 # --- aliases: npm ---
 alias nlg='npm ls -g --depth 0'
