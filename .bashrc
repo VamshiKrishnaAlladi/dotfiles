@@ -108,6 +108,22 @@ alias pf86='start /c/progra~2'
 
 
 # Loading other files
-source ~/.bash-git-prompt/gitprompt.sh
-source ~/git-flow-completion.bash
 source ~/npm-completion.bash
+
+src="${BASH_SOURCE[0]}"
+
+# resolve $src until the file is no longer a symlink
+while [ -h "$src" ]; do
+    dir="$( cd -P "$( dirname "$src" )" >/dev/null 2>&1 && pwd )"
+    src="$(readlink "$src")"
+    [[ $src != /* ]] && src="$dir/$src"
+    # if $src was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+
+dotfiles_dir="$( cd -P "$( dirname "$src" )" >/dev/null 2>&1 && pwd )"
+
+setPrompt () {
+    PS1="$($dotfiles_dir/git-prompt.js "$?")"
+}
+
+PROMPT_COMMAND=setPrompt
