@@ -1,0 +1,35 @@
+[user]
+	name = Vamshi Krishna Alladi
+	email = vamshikrishnaalladi.me@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = input
+	eol = lf
+	safecrlf = warn
+[help]
+	autocorrect = 25
+[winUpdater]
+	recentlySeenVersion = 2.25.0.windows.1
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[github]
+	username = VamshiKrishnaAlladi
+[alias]
+	cm = commit -am
+	edit = config --edit --global # To edit this very config file
+	get = fetch --all --prune -vv
+	lt = describe --abbrev=0 # Get Latest Tag-name
+	praise = blame
+	recap = log --all --oneline
+	review = "!f() { git log --oneline `git describe --abbrev=0`..HEAD; }; f"
+	sb = branch --all -vv
+	today = log --all --oneline --no-merges --author=vamshikrishnaalladi.me@gmail.com --since=00:00:00
+	undo = reset --soft HEAD^
+	up = "!f(){ echo '\npushing commits...\n' && git push && echo '\npushing commit tags...\n' && git push --tags; }; f"
+	sync = "!f(){ echo '\npulling changes...\n' && git pull && echo '\npushing changes...\n' && git push; }; f"
