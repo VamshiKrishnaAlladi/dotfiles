@@ -106,14 +106,14 @@ alias vka='start /d/GitHub/vka'
 alias pf='start /c/progra~1'
 alias pf86='start /c/progra~2'
 
-
 # Loading other files
+source ~/git-completion.bash
 source ~/npm-completion.bash
 
+# Set git status enriched prompt
 src="${BASH_SOURCE[0]}"
 
-# resolve $src until the file is no longer a symlink
-while [ -h "$src" ]; do
+while [ -h "$src" ]; do # resolve $src until the file is no longer a symlink
     dir="$( cd -P "$( dirname "$src" )" >/dev/null 2>&1 && pwd )"
     src="$(readlink "$src")"
     [[ $src != /* ]] && src="$dir/$src"
