@@ -111,19 +111,8 @@ source ~/git-completion.bash
 source ~/npm-completion.bash
 
 # Set git status enriched prompt
-src="${BASH_SOURCE[0]}"
-
-while [ -h "$src" ]; do # resolve $src until the file is no longer a symlink
-    dir="$( cd -P "$( dirname "$src" )" >/dev/null 2>&1 && pwd )"
-    src="$(readlink "$src")"
-    [[ $src != /* ]] && src="$dir/$src"
-    # if $src was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-
-dotfiles_dir="$( cd -P "$( dirname "$src" )" >/dev/null 2>&1 && pwd )"
-
 setPrompt () {
-    PS1="$($dotfiles_dir/git-prompt.js "$?")"
+    PS1="$(~/git-prompt.js "$?")"
 }
 
 PROMPT_COMMAND=setPrompt
