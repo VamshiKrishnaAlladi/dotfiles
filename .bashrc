@@ -61,6 +61,11 @@ function mkcd {
     cd $1;
 }
 
+function openFile {
+    pln "${green}➜ […]${reset}  -  ${boldgreen}opening ${boldmagenta}'$1'${boldgreen} file...${reset}\n";
+    code $1;
+}
+
 # --- aliases: clear screen ---
 alias cls='echo -e "\\0033\\0143"'
 alias csl=cls
@@ -68,13 +73,9 @@ alias cl=cls
 alias clear=cls
 
 # --- alaises: edit ---
-alias ebp='\
-pln "${green}➜ […]${reset}  -  ${boldgreen}opening ${boldmagenta}\"~/.bash_profile\"${boldgreen} file...${reset}\n" && \
-code ~/.bash_profile'
+alias ebp='openFile ~/.bash_profile'
 
-alias eb='\
-pln "${green}➜ […]${reset}  -  ${boldgreen}opening ${boldmagenta}\"~/.bashrc\"${boldgreen} file...${reset}\n" && \
-code ~/.bashrc'
+alias eb='openFile ~/.bashrc'
 
 # --- alaises: node_modules ---
 alias nmr='\
