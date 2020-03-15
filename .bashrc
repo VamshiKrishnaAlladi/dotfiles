@@ -1,7 +1,3 @@
-GIT_PROMPT_ONLY_IN_REPO=1
-GIT_PROMPT_SHOW_UNTRACKED_FILES=all # can be no, normal or all; determines counting of untracked files
-GIT_PROMPT_THEME=VKA
-
 # COLORS
 reset=`tput sgr0`
 
